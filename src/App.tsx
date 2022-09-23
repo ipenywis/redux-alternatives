@@ -4,8 +4,18 @@ import { RecoilDemo } from "./libraries/recoil";
 import { ZustandDemo } from "./libraries/zustand";
 
 import { RecoilRoot } from "recoil";
-import { Provider } from "jotai";
+import { Provider as JotaiProvider } from "jotai";
 import { JotaiDemo } from "./libraries/jotai";
+import { Provider as ReduxProvider } from "react-redux";
+
+import { RematchDemo } from "./libraries/rematch/rematch";
+import { init } from "@rematch/core";
+import { photos } from "./libraries/rematch/rematch";
+import { models } from "./libraries/rematch/models";
+
+export const store = init({
+  models,
+});
 
 function App() {
   return (
@@ -14,9 +24,12 @@ function App() {
       {/* <RecoilRoot>
         <RecoilDemo />
       </RecoilRoot> */}
-      <Provider>
+      {/* <JotaiProvider>
         <JotaiDemo />
-      </Provider>
+      </JotaiProvider> */}
+      <ReduxProvider store={store}>
+        <RematchDemo />
+      </ReduxProvider>
     </div>
   );
 }

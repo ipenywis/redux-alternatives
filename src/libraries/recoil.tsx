@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { atom, useRecoilState } from "recoil";
+import { atom, selector, useRecoilState } from "recoil";
 import { PhotosList } from "../components/photosList";
 import { fetchPhotos } from "../services/photos";
 import { IPhoto } from "../typings/photo";
@@ -12,6 +12,8 @@ const photosState = atom({
   key: "PhotosState",
   default: [] as IPhoto[],
 });
+
+//TODO: Maybe add filters
 
 export function RecoilDemo() {
   const [photos, setPhotos] = useRecoilState(photosState);

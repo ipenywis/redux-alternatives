@@ -5,6 +5,7 @@ import { fetchPhotos } from "../services/photos";
 import { IPhoto } from "../typings/photo";
 
 const photosAtom = atom<IPhoto[]>([]);
+
 const photosVotesAtom = atom(
   (get) => get(photosAtom),
   (get, set, photoId: number) => {
@@ -19,6 +20,7 @@ const photosVotesAtom = atom(
     set(photosAtom, updatedPhotos);
   }
 );
+
 const fetchPhotosAtom = atom(
   (get) => get(photosAtom),
   async (get, set) => {
