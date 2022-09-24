@@ -12,6 +12,8 @@ import { RematchDemo } from "./libraries/rematch/rematch";
 import { init } from "@rematch/core";
 import { photos } from "./libraries/rematch/rematch";
 import { models } from "./libraries/rematch/models";
+import { reduxStore } from "./libraries/reduxToolkit/store";
+import { ReduxToolkitDemo } from "./libraries/reduxToolkit/reduxToolkit";
 
 export const store = init({
   models,
@@ -27,8 +29,11 @@ function App() {
       {/* <JotaiProvider>
         <JotaiDemo />
       </JotaiProvider> */}
-      <ReduxProvider store={store}>
+      {/* <ReduxProvider store={store}>
         <RematchDemo />
+      </ReduxProvider> */}
+      <ReduxProvider store={reduxStore}>
+        <ReduxToolkitDemo />
       </ReduxProvider>
     </div>
   );
