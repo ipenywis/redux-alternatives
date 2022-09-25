@@ -16,7 +16,7 @@ export function Photo(props: IPhotoProps) {
       onClick={onVote.bind(null, id)}
     >
       <img src={url} className="w-auto h-96 rounded-xl" />
-      <div className="text-bold text-white text-lg mt-3">Votes: {votes}</div>
+      <div className="font-bold text-white text-lg mt-3">Votes: {votes}</div>
     </div>
   );
 }
